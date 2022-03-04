@@ -20,7 +20,7 @@ return function (App $app) {
 	            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 	});
 
-	$app->group('/api', function(RouteCollectorProxy $group){
+	$app->group('', function(RouteCollectorProxy $group){
 
 		$group->get('/', function (Request $request, Response $response) {
 			$response->getBody()->write('All is Good!');

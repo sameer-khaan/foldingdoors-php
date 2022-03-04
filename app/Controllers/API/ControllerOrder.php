@@ -21,6 +21,9 @@ class ControllerOrder extends \App\Controllers\BaseController
         $res = array();
         try {
             $oModel = \Model::factory('\App\Models\Order')->create()->getRecord($args['orderid']);
+            if(!$oModel) {
+                throw new \Exception('Order Not Exist');
+            }
             $res['header'] = array('code'=>1, 'message'=>'Success');
             $res['body'] = $oModel->as_array();
         } catch (\Exception $ex) {
