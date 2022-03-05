@@ -21,9 +21,9 @@ class Order extends \Model {
 		return \ORM::for_table(self::$_table)->where('quote_no',$orderid)->find_one();
 	}
 
-	public function getRecordAll()
+	public function getAllRecords()
 	{
-		return \ORM::for_table(self::$_table)->find_array();
+		return \ORM::for_table(self::$_table)->order_by_desc('time')->find_array();
 	}
 
 	public function payments()

@@ -16,6 +16,21 @@ class ControllerOrder extends \App\Controllers\BaseController
         return $this->withJson($response, $res);
     }
 
+    public function getOrders($request, $response, $args)
+    {
+        $res = array();
+        try {
+            $oModel = \Model::factory('\App\Models\Order')->create()->getAllRecords();
+            $res['header'] = array('code'=>1, 'message'=>'Success');
+            $res['body'] = $oModel;
+        } catch (\Exception $ex) {
+            $res['header'] = array('code'=>101, 'message'=>'No data found!');
+            $res['body'] = $ex->getMessage();
+        }
+
+        return $this->withJson($response, $res);
+    }
+
     public function getOrder($request, $response, $args)
     {
         $res = array();

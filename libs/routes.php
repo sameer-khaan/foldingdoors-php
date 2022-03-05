@@ -27,6 +27,7 @@ return function (App $app) {
 			return $response;
 		});
 
+		$group->get('/get_orders','App\Controllers\API\ControllerOrder:getOrders');
 		$group->get('/get_order/{orderid}','App\Controllers\API\ControllerOrder:getOrder');
 		$group->post('/add_order','App\Controllers\API\ControllerOrder:addOrder');
 	});
