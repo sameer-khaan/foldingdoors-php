@@ -47,6 +47,7 @@ class Order extends \Model {
 		));
 		$this->save();
 
+		$res['orderid'] = $this->quote_no;
 		$res['success'] = ucwords("order $message successfully");
 		return $res;
 	}
